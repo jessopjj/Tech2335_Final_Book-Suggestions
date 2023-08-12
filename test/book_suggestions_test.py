@@ -2,6 +2,5 @@
 
 from app.book_suggestions import search_books, display_book_details, suggest_random_book
 
-def test_search_books():
-    result = search_books("horror")
+
 

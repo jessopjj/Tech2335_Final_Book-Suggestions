@@ -10,10 +10,22 @@ book_suggestions_routes = Blueprint("book_suggestions_routes", __name__)
 
 @book_suggestions_routes.route("/")
 @book_suggestions_routes.route("/books")
-def index():
+def form():
     print("Book Bestie")
     #return "Welcome Home"
     return render_template("book_suggestions_form.html")
+
+@book_suggestions_routes.route("/books/readout")
+def readout():
+    print("Book Results")
+    return render_template("bootstrap_5_layout.html")
+
+
+
+
+
+
+#REEVALUATE EVERYTHING BELOW
 
 @book_suggestions_routes.route("/books/search")
 def book_suggestions_search():
