@@ -32,8 +32,6 @@ def suggest_random_book(books_data):
     else:
         print("Sorry, no books found for your query.")
 
-# Welcome message
-print("Welcome to your Book Bestie!")
 
 # Prompt the user for input
 user_query = input("Enter a genre or title to search for: ")
@@ -58,3 +56,5 @@ print("Woah! These are are a lot of books. Which one should you start with?")
 random_choice = input("Do you want a random book suggestion? (ofc/no): ")
 if random_choice.lower() == 'ofc':
     suggest_random_book(books_data)
+else:
+    print("Okay! Enjoy the list above!")
