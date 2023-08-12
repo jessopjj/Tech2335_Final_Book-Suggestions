@@ -32,8 +32,9 @@ def suggest_random_book(books_data):
     else:
         print("Sorry, no books found for your query.")
 
+
 if __name__ == "__main__":
-    # Prompt the user for input
+     # Prompt the user for input
     user_query = input("Enter a genre or title to search for: ")
 
     # Search for books based on user input
