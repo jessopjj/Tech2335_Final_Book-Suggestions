@@ -11,34 +11,32 @@ book_suggestions_routes = Blueprint("book_suggestions_routes", __name__)
 @book_suggestions_routes.route("/")
 @book_suggestions_routes.route("/books")
 def form():
-    print("Book Bestie")
-    #return "Welcome Home"
+    print("BOOK FORM...")
     return render_template("book_suggestions_form.html")
 
-@book_suggestions_routes.route("/books/readout")
+@book_suggestions_routes.route("/books/readout", methods=["GET", "POST"])
 def readout():
-    print("Book Results")
-    return render_template("bootstrap_5_layout.html")
+    print("BOOK READOUT...")
+    if request.method == "POST":
+        # for data sent via POST request, form inputs are in request.form:
+        request_data = dict(request.form)
+        print("FORM DATA:", request_data)
+    else:
+        # for data sent via GET request, url params are in request.args
+        request_data = dict(request.args)
+        print("URL PARAMS:", request_data)
 
-
-
-
-
-
-#REEVALUATE EVERYTHING BELOW
-
-@book_suggestions_routes.route("/books/search")
-def book_suggestions_search():
-    print("BOOK SUGGESTIONS SEARCH...")
+    query = request.data.get("query")
 
     try:
-        data = search_books()
 
-#WORKING ON THIS!!!
+#ADD PYTHON CODE HERE
 
         flash("Fetched Book Query Data!", "success")
-        return render_template("book_suggestions_form.html",
-            data = data
+        return render_template("book_suggestions_readout",
+                               
+#AND HERE - all of the results above = themselves
+
         )
     except Exception as err:
         print("OOPS", err)
@@ -47,7 +45,7 @@ def book_suggestions_search():
         return redirect("/")
 
 
-#API  ROUTES
+#API  ROUTES - NEED TO FIGURE OUT
 
 @book_suggestions_routes.route("/api/books.json")
 def books_api():
