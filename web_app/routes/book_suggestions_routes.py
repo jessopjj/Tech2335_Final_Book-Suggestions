@@ -26,7 +26,7 @@ def readout():
         request_data = dict(request.args)
         print("URL PARAMS:", request_data)
 
-    query = request.data.get("query")
+    query = request_data.get("query")
 
     try:
         df = search_books(query=query)
@@ -52,8 +52,7 @@ def readout():
 
 @book_suggestions_routes.route("/books/readout/random", methods=["GET", "POST"])
 def random():
-        print("BOOK RANDOM...")
-
+    print("BOOK RANDOM...")
     if request.method == "POST":
         # for data sent via POST request, form inputs are in request.form:
         request_data = dict(request.form)
@@ -63,16 +62,16 @@ def random():
         request_data = dict(request.args)
         print("URL PARAMS:", request_data)
 
-    y_random = request.data.get("random")
+    y_random = request_data.get("random")
 
     try:
-        df = search_books(y_random= ) 
+        df = search_books(y_random) 
 
 
 #ADD PYTHON CODE HERE
 
         flash("Fetched Book Query Data!", "success")
-        return render_template("book_suggestions_random.html"
+        return render_template("book_suggestions_random.html",
             query=query,
 #ADD ANYTHING ELSE FROM ABOVE - all of the results above = themselves
 
