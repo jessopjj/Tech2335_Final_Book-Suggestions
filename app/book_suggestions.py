@@ -54,8 +54,8 @@ if __name__ == "__main__":
     print("Woah! These are are a lot of books. Which one should you start with?")
 
     # Ask if the user wants a random book suggestion
-    random_choice = input("Do you want a random book suggestion? (ofc/no): ")
-    if random_choice.lower() == 'ofc':
+    random_choice = input("Do you want a random book suggestion? (yes/no): ")
+    if random_choice.lower() == 'yes':
         suggest_random_book(books_data)
     else:
         print("Okay! Enjoy the list above!")

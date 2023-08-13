@@ -33,7 +33,7 @@ def readout():
 #ADD PYTHON CODE HERE
 
         flash("Fetched Book Query Data!", "success")
-        return render_template("book_suggestions_readout",
+        return render_template("book_suggestions_readout.html",
                                
 #AND HERE - all of the results above = themselves
 
@@ -43,6 +43,14 @@ def readout():
 
         flash("Book Query Data Error. Please try again.", "danger")
         return redirect("/")
+
+
+@book_suggestions_routes.route("/books/readout/random", methods=["GET", "POST"])
+def random():
+        print("BOOK RANDOM...")
+        return render_template("book_suggestions_random.html")
+
+
 
 
 #API  ROUTES - NEED TO FIGURE OUT

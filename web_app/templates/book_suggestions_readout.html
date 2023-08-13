@@ -5,6 +5,26 @@
     
     <h2>Book Bestie - here are your results!</h2>
 
+    <script>
+        console.log("BOOK READOUT...")
+
+    </script>
+
+    <p>Woah! These are are a lot of books. Which one should you start with?</p>
+    
+    <br> 
+
+    <form action="/books/readout/random" method="POST">
+        <br>
+        
+        <label>Enter a genre or title to search for:</label>
+        <input type="text" name="choose random?" placeholder="yes / no">
+        
+        <br>
+        <br>
+
+        <button class="btn btn-primary" class="btn btn-primary btn-sm">Submit</button>
+    </form>
 
 
 {% endblock %}
