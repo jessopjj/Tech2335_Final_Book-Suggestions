@@ -10,8 +10,8 @@ BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
 def search_books(query):
     params = {'q': query, 'key': API_KEY}
     response = requests.get(BASE_URL, params=params)
-    data = response.json()
-    return data
+    df = response.json()
+    return df
 
 # Function to display book details
 def display_book_details(book):
