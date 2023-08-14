@@ -34,19 +34,6 @@ Run the book suggestions report:
 python -m app.book_suggestions
 ```
 
-Run the web app:
-
-```sh
-# Mac OS:
-FLASK_APP=web_app flask run
-
-# Windows OS:
-# ... if `export` doesn't work for you, try `set` instead
-# ... or try a ".env" file approach
-export FLASK_APP=web_app
-flask run
-```
-
 ## Testing
 
 ```sh

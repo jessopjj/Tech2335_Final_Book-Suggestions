@@ -2,10 +2,5 @@
 requests
 python-dotenv
 
-# for web app:
-flask # <--- ADD FOR WEB APP
-gunicorn # <--- ADD FOR HOSTING APP
-
-
 # for testing:
 pytest
