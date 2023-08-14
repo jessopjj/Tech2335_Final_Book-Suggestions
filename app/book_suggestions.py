@@ -11,7 +11,7 @@ def search_books(query):
     params = {'q': query, 'key': API_KEY}
     response = requests.get(BASE_URL, params=params)
     data = response.json()
-    return data
+    return data["items"] #update downstream
 
 # Function to display book details
 def display_book_details(book):
@@ -23,6 +23,7 @@ def display_book_details(book):
     print(f"Authors: {', '.join(authors)}")
     print(f"Description: {description}")
     print("=" * 20)
+    return volume_info, title, authors, description 
 
 # Function to suggest a random book
 def suggest_random_book(books_data):

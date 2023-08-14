@@ -32,10 +32,11 @@ def readout():
     try:
         data = search_books(query=query)
 
+
         flash("Fetched Book Query Data!", "success")
         return render_template("book_suggestions_readout.html",
             query=query,
-            data=data
+            data=data,
         )    
             
     except Exception as err:

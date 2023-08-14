@@ -5,19 +5,21 @@
     
     <h2>Book Bestie - here are your results!</h2>
     <br>
-
+    
     <ul>
-            <li style="list-style-type:none">
-                ====================
+    {% for book in data %}
+            <li style="list-style-type:none"> <!--- change to ordered list vs index-->
+                Title: {{ book.volumeInfo.title }}
             </li>
+    {% endfor %}
     </ul>
-
+    
     <p>Woah! These are are a lot of books. Which one should you start with?</p>
     
 
     <form action="/books/readout/random" method="POST">
         
-        <label>Enter a genre or title to search for:</label>
+        <label>Do you want a random book selection?</label>
         <input type="text" name="random" placeholder="yes / no">
         
         <br>
