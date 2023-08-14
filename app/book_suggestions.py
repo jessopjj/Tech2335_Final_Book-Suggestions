@@ -11,7 +11,7 @@ def search_books(query):
     params = {'q': query, 'key': API_KEY}
     response = requests.get(BASE_URL, params=params)
     data = response.json()
-    return data["items"] #update downstream
+    return data['items']
 
 # Function to display book details
 def display_book_details(book):

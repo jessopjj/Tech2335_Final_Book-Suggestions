@@ -5,17 +5,24 @@
     
     <h2>Book Bestie - here are your results!</h2>
     <br>
-    
-    <ul>
-    {% for book in data %}
-            <li style="list-style-type:none"> <!--- change to ordered list vs index-->
-                Title: {{ book.volumeInfo.title }}
-            </li>
-    {% endfor %}
-    </ul>
-    
-    <p>Woah! These are are a lot of books. Which one should you start with?</p>
-    
+
+    <div class="row">
+        {% for book in data %}
+            <div class="col">
+                <div class="card" style="width: 18rem; margin-bottom: 20px;">
+                    <img class="card-img-top" src="{{ book.volumeInfo.imageLinks.thumbnail }}" alt="todo'">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+                        <h6 class="card-text"> Author(s): {{ ", ".join(book.volumeInfo.authors) }} </h6>
+                        <p class="card-text">{{ book.volumeInfo.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h4>Woah! These are are a lot of books. Which one should you start with?</h4>
+
 
     <form action="/books/readout/random" method="POST">
         

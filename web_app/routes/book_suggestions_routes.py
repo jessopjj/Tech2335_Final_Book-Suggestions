@@ -32,6 +32,7 @@ def readout():
     try:
         data = search_books(query=query)
 
+        #breakpoint()
 
         flash("Fetched Book Query Data!", "success")
         return render_template("book_suggestions_readout.html",
