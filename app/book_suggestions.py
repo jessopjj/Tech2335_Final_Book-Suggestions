@@ -11,7 +11,7 @@ def search_books(query):
     params = {'q': query, 'key': API_KEY}
     response = requests.get(BASE_URL, params=params)
     data = response.json()
-    return data['items']
+    return data["items"]
 
 # Function to display book details
 def display_book_details(book):
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     books_data = search_books(user_query)
 
     # Display search results
-    book_list = enumerate(books_data.get('items', []), start=1)
+    book_list = enumerate(books_data, start=1)
 
     print("Search Results:")
     for index, book in book_list:
@@ -52,13 +52,3 @@ if __name__ == "__main__":
         print(f"{index}. Title: {title}")
         print(f"   Authors: {', '.join(authors)}")
         print("=" * 20)
-
-
-    print("Woah! These are are a lot of books. Which one should you start with?")
-
-    # Ask if the user wants a random book suggestion
-    random_choice = input("Do you want a random book suggestion? (yes/no): ")
-    if random_choice.lower() == 'yes':
-        suggest_random_book(books_data)
-    else:
-        print("Okay! Enjoy the list above!")

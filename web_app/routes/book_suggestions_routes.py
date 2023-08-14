@@ -47,39 +47,6 @@ def readout():
         return redirect("/")
 
 
-@book_suggestions_routes.route("/books/readout/random", methods=["GET", "POST"])
-def random():
-    print("BOOK RANDOM...")
-    if request.method == "POST":
-        # for data sent via POST request, form inputs are in request.form:
-        request_data = dict(request.form)
-        print("FORM DATA:", request_data)
-    else:
-        # for data sent via GET request, url params are in request.args
-        request_data = dict(request.args)
-        print("URL PARAMS:", request_data)
-
-    random_choice = request_data.get("random")
-
-    try:
-        random_choice = search_books(random_choice) 
-
-
-#ADD PYTHON CODE HERE
-
-        flash("Fetched Book Query Data!", "success")
-        return render_template("book_suggestions_random.html",
-            random_choice=random_choice
-#ADD ANYTHING ELSE FROM ABOVE - all of the results above = themselves
-        )    
-            
-    except Exception as err:
-        print("OOPS", err)
-
-        flash("Book Query Data Error. Please try again.", "danger")
-        return redirect("/")
-
-
 
 
 #API  ROUTES - NEED TO FIGURE OUT
