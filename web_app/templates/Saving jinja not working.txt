@@ -14,6 +14,11 @@ BOOK_SUGGESTIONS_RANDOM - ALL CODE
         
     {% endblock %}
 
+ALT
+    {% if 'yes' in random %}
+    <p>Okay! Enjoy the list above!</p>
+    {% endif %}
+
 
 BOOK_SUGGESTIONS_READOUT - ALL CODE
 

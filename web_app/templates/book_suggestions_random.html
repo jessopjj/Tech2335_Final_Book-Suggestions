@@ -3,8 +3,10 @@
 
 {% block content %}
 
-    {% if random is "yes" %}
-    <p>Okay! Enjoy the list above!</p>
+<p> hello </p>
+
+    {% if random_choice is 'yes' %}    
+        {{ suggest_random_book(books_data) }}
     {% endif %}
 
     

@@ -46,7 +46,6 @@ def readout():
         flash("Book Query Data Error. Please try again.", "danger")
         return redirect("/")
 
-
 @book_suggestions_routes.route("/books/readout/random", methods=["GET", "POST"])
 def random():
     print("BOOK RANDOM...")
@@ -60,18 +59,21 @@ def random():
         print("URL PARAMS:", request_data)
 
     random_choice = request_data.get("random")
-
+    
     try:
-        random_choice = search_books(random_choice) 
+        random = suggest_random_book(data=data) 
 
+        #breakpoint()
 
 #ADD PYTHON CODE HERE
 
         flash("Fetched Book Query Data!", "success")
         return render_template("book_suggestions_random.html",
-            random_choice=random_choice
-#ADD ANYTHING ELSE FROM ABOVE - all of the results above = themselves
-        )    
+            random_choice=random_choice,
+            random=random,
+            data=data
+            )
+
             
     except Exception as err:
         print("OOPS", err)
