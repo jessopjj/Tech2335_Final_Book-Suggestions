@@ -17,6 +17,7 @@ def form():
 @book_suggestions_routes.route("/books/readout", methods=["GET", "POST"])
 def readout():
     print("BOOK READOUT...")
+
     if request.method == "POST":
         # for data sent via POST request, form inputs are in request.form:
         request_data = dict(request.form)
@@ -29,17 +30,11 @@ def readout():
     query = request_data.get("query")
 
     try:
-        df = search_books(query=query)
-        data = df.to_dict("records")
-
-
-#ADD PYTHON CODE HERE
+        data = search_books(query=query)
 
         flash("Fetched Book Query Data!", "success")
         return render_template("book_suggestions_readout.html",
             query=query,
-#ADD ANYTHING ELSE FROM ABOVE - all of the results above = themselves
-
             data=data
         )    
             
@@ -62,20 +57,18 @@ def random():
         request_data = dict(request.args)
         print("URL PARAMS:", request_data)
 
-    y_random = request_data.get("random")
+    random_choice = request_data.get("random")
 
     try:
-        df = search_books(y_random) 
+        random_choice = search_books(random_choice) 
 
 
 #ADD PYTHON CODE HERE
 
         flash("Fetched Book Query Data!", "success")
         return render_template("book_suggestions_random.html",
-            query=query,
+            random_choice=random_choice
 #ADD ANYTHING ELSE FROM ABOVE - all of the results above = themselves
-
-            data=data
         )    
             
     except Exception as err:
@@ -89,20 +82,19 @@ def random():
 
 #API  ROUTES - NEED TO FIGURE OUT
 
-@book_suggestions_routes.route("/api/books.json")
-def books_api():
-    print("BOOK DATA (API)...")
+#@book_suggestions_routes.route("/api/books.json")
+#def books_api():
+#    print("BOOK DATA (API)...")
 
  # for data supplied via GET request, url params are in request.args:
-    url_params = dict(request.args)
-    print("URL PARAMS:", url_params)
-    query = url_params.get("query")
+#    url_params = dict(request.args)
+#    print("URL PARAMS:", url_params)
+#    query = url_params.get("query")
 
-    try:
-        df = search_books(query=query)
-        data = df.to_dict("records")
-        return {"query": query, "data": data }
+#    try:
+#        data = search_books(query=query)
+#        return {"query": query, "data": data }
 
-    except Exception as err:
-        print('OOPS', err)
-        return {"message":"Book Query Data Error. Please try again."}, 404
+#    except Exception as err:
+#        print('OOPS', err)
+#        return {"message":"Book Query Data Error. Please try again."}, 404

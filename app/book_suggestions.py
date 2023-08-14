@@ -10,8 +10,8 @@ BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
 def search_books(query):
     params = {'q': query, 'key': API_KEY}
     response = requests.get(BASE_URL, params=params)
-    df = response.json()
-    return df
+    data = response.json()
+    return data
 
 # Function to display book details
 def display_book_details(book):
@@ -41,8 +41,10 @@ if __name__ == "__main__":
     books_data = search_books(user_query)
 
     # Display search results
+    book_list = enumerate(books_data.get('items', []), start=1)
+
     print("Search Results:")
-    for index, book in enumerate(books_data.get('items', []), start=1):
+    for index, book in book_list:
         volume_info = book.get('volumeInfo', {})
         title = volume_info.get('title', 'No Title')
         authors = volume_info.get('authors', ['Unknown Author'])

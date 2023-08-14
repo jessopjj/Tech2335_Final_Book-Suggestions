@@ -4,18 +4,18 @@
 {% block content %}
     
     <h2>Book Bestie - here are your results!</h2>
+    <br>
 
-    <script>
-        console.log("BOOK READOUT...")
-
-    </script>
+    <ul>
+            <li style="list-style-type:none">
+                ====================
+            </li>
+    </ul>
 
     <p>Woah! These are are a lot of books. Which one should you start with?</p>
     
-    <br> 
 
     <form action="/books/readout/random" method="POST">
-        <br>
         
         <label>Enter a genre or title to search for:</label>
         <input type="text" name="random" placeholder="yes / no">
